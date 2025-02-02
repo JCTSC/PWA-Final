@@ -191,14 +191,20 @@ function createPhotoCards() {
 
 // Chamando a função para exibir os cards na tela
 createPhotoCards();
-function cameraStart() {
-  navigator.mediaDevices
-    .getUserMedia(constraints())
-    .then((stream) => {
-      cameraView.srcObject = stream;
-    })
-    .catch((error) => console.error("Ocorreu um erro.", error));
-}
+switchCameraButton.onclick = async function () {
+  // Alterna entre os modos de câmera
+  cameraMode = cameraMode === "user" ? "environment" : "user";
+
+  // Se a câmera já está ativa, pare todos os tracks (fluxos de vídeo)
+  if (cameraView.srcObject) {
+    const tracks = cameraView.srcObject.getTracks();
+    tracks.forEach(track => track.stop()); // Para a câmera atual
+  }
+
+  // Inicia a câmera novamente com o novo modo
+  cameraStart();
+};
+
 
 cameraTrigger.onclick = async function () {
   const photoTitle = photoTitleInput.value.trim();
@@ -232,14 +238,17 @@ cameraTrigger.onclick = async function () {
 };
 
 switchCameraButton.onclick = async function () {
+  // Alterna entre os modos de câmera
   cameraMode = cameraMode === "user" ? "environment" : "user";
 
+  // Se a câmera já está ativa, pare todos os tracks (fluxos de vídeo)
   if (cameraView.srcObject) {
-    let tracks = cameraView.srcObject.getTracks();
+    const tracks = cameraView.srcObject.getTracks();
     tracks.forEach(track => track.stop()); // Para a câmera atual
   }
 
-  cameraStart(); // Reinicia a câmera com o novo modo
+  // Inicia a câmera novamente com o novo modo
+  cameraStart();
 };
 
 
