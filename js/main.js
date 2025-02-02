@@ -216,6 +216,7 @@ switchCameraButton.onclick = async function () {
 };
 
 
+
 cameraTrigger.onclick = async function () {
   const photoTitle = photoTitleInput.value.trim();
   if (!photoTitle) {
@@ -260,6 +261,7 @@ switchCameraButton.onclick = async function () {
   // Inicia a câmera novamente com o novo modo
   cameraStart();
 };
+
 
 
 window.addEventListener("load", () => {
