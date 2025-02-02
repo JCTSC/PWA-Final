@@ -1,221 +1,182 @@
-/* Reset básico */
+/* Reset de estilos básicos */
 * {
-    margin: 1;
-    padding: 1;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* Body */
-  body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5eb;
-    color: #5b484a;
   }
   
-  /* Container principal */
+  body {
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+  }
+  
   .container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    background: #fff;
     padding: 20px;
-    background-color: #e1daca;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Cabeçalho */
   .cabecalho {
-    text-align: center;
-    margin-bottom: 30px;
+    background: #0275d8;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
   }
   
   .titulo {
-    font-size: 2rem;
-    color: #b3907a;
+    font-size: 24px;
   }
   
-  /* Seções */
-  .conteudo {
-    padding: 20px;
-  }
-  
-  .cabecalhoConteudo h2 {
-    font-size: 1.5rem;
-    color: #b3907a;
-    margin-bottom: 10px;
-  }
-  
-  /* Geolocalização 
-  .conteudoLocalizacao p {
-    font-size: 1rem;
-    margin: 10px 0;
-  }
-  
-  .botao {
-    background-color: #c1b6a3;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .botao:hover {
-    background-color: #b3907a;
-  }
-  */
-  /* Câmera */
+  /* Estilizando a câmera */
   #camera {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-      display: flex;
-      flex-direction: column;
+    margin-top: 20px;
   }
   
-  #camera--view {
-    max-width: 100%;
+  video {
+    width: 100%;
+    max-width: 600px;
     border-radius: 8px;
+    border: 2px solid #0275d8;
   }
   
-  #camera--sensor{
-    max-width: -webkit-fill-available;
-    max-height: -webkit-fill-available;
-  }
-  
-  #camera--output {
-    margin-top: 10px;
-    max-width: 100%;
-    display: block;
-    border-radius: 8px;
-  }
-  .photo-preview{
-    max-width: -webkit-fill-available;
-    max-height: -webkit-fill-available;
-  }
-  
-  #camera--trigger {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #c1b6a3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  #camera--trigger:hover {
-    background-color: #b3907a;
-  }
-  
-  /* Trocar câmera */
-  #switch-camera {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #c1b6a3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #switch-camera:hover {
-    background-color: #b3907a;
-  }
-  
-  #photo-title{
-    width: 40%;
-    background-color: #c1b6a3;
-    color: #f5f5eb;
+  input[type="text"] {
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #5b484a;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  
-  /* Efeito ao focar */
-  #photo-title:focus{
-    border-color: #5b484a;
-    box-shadow: 0 0 5px #5b484a
-  }
-  #photo-title::placeholder{
-    color: #f5f5eb;
-  }
-  
-  /* Notícias 
-  #news {
-    margin-top: 30px;
-  }
-  
-  #news-container p {
-    font-size: 1rem;
-    margin: 10px 0;
-  }
-  
-  #apiKeyInput {
-    padding: 10px;
-    font-size: 1rem;
-    width: 70%;
-    margin-right: 10px;
-    border-radius: 5px;
+    margin-top: 10px;
     border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
-  #btnAtualizarAPI {
-    padding: 10px 20px;
-    background-color: #4A90E2;
-    color: white;
+  button {
+    background: #0275d8;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px;
     cursor: pointer;
-    font-size: 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
   }
   
-  #btnAtualizarAPI:hover {
-    background-color: #357ABD;
-  }*/
+  button:hover {
+    background: #0256a3;
+  }
   
-  /* Map */
-  #map {
+  /* Galeria de fotos */
+  #photo-gallery-container {
     margin-top: 30px;
+  }
+  
+  #photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .photo-preview {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #0275d8;
+  }
+  
+  /* Cartões de paisagem */
+  #cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .fossil-card, .photo-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .fossil-card:hover, .photo-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .photo-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Mapa */
+  #photo-map {
+    margin-top: 20px;
     border-radius: 8px;
   }
   
   /* Rodapé */
   .rodape {
+    background: #0275d8;
+    color: #fff;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    margin-top: 30px;
+  },
+  body {
+    background-color: #F4E3C1;
+    font-family: 'Georgia', serif;
+    color: #5A3E1B;
+  }
+  .cabecalho {
+    background: #8B5E3B;
+    color: white;
+    padding: 15px;
     text-align: center;
-    margin-top: 40px;
-    font-size: 1rem;
-    color: #777;
   }
-  #cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+  .titulo {
+    font-size: 24px;
   }
-  
-  .photo-card {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+  .container {
+    padding: 20px;
   }
-  
-  .photo-card img {
+  .rodape {
+    background: #8B5E3B;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
-  
-  .photo-card:hover {
-    transform: scale(1.1);
+  #photo-gallery-container {
+    background: #D2B48C;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
   }
+  button {
+    background: #5A3E1B;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: #8B5E3B;
+  }
+
   

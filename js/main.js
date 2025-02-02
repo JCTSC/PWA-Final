@@ -13,7 +13,7 @@ const constraints = () => ({ video: { facingMode: cameraMode }, audio: false });
 
 async function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open("cameraDB", 1);
+    const request = indexedDB.open("paleontologyDB", 1);
     request.onupgradeneeded = (event) => {
       const db = event.target.result;
       if (!db.objectStoreNames.contains("photos")) {
@@ -49,7 +49,7 @@ function updatePhotoGallery() {
   let gallery = document.getElementById("photo-gallery");
   if (!gallery) return;
 
-  gallery.innerHTML = ""; // Limpa a galeria antes de atualizar
+  gallery.innerHTML = ""; 
 
   lastPhotos.forEach((photoWithLocation) => {
     const img = document.createElement("img");
@@ -76,6 +76,45 @@ function updatePhotoGallery() {
     gallery.appendChild(iframe);
   });
 }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('.../sw.js', { type: "module" });
+      console.log('Service Worker registrado!', reg);
+      postNews();
+    } catch (err) {
+      console.log('Registro do Service Worker falhou:', err);
+    }
+  });
+}
+
+const fossilSites = [
+  { title: "Hell Creek Formation", description: "Um dos locais mais ricos em fósseis do período Cretáceo." },
+  { title: "La Brea Tar Pits", description: "Famoso por preservar mamíferos da Era do Gelo." },
+  { title: "Dinosaur Provincial Park", description: "Conhecido por uma vasta diversidade de fósseis de dinossauros." },
+  { title: "Ischigualasto", description: "Uma das melhores janelas para o período Triássico." },
+  { title: "Solnhofen Limestone", description: "Famoso por fósseis bem preservados, como o Archaeopteryx." }
+];
+
+function createFossilCards() {
+  const cardsContainer = document.getElementById("cards-container");
+  fossilSites.forEach((site) => {
+    const card = document.createElement("div");
+    card.classList.add("fossil-card");
+
+    const title = document.createElement("h3");
+    title.innerText = site.title;
+
+    const description = document.createElement("p");
+    description.innerText = site.description;
+
+    card.appendChild(title);
+    card.appendChild(description);
+    cardsContainer.appendChild(card);
+  });
+}
+
+createFossilCards();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
