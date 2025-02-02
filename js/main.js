@@ -189,6 +189,16 @@ function createPhotoCards() {
   });
 }
 
+
+async function cameraStart() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints());
+    cameraView.srcObject = stream;
+  } catch (error) {
+    console.log("Erro ao iniciar a câmera: ", error);
+  }
+}
+
 // Chamando a função para exibir os cards na tela
 createPhotoCards();
 switchCameraButton.onclick = async function () {
