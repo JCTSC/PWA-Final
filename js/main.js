@@ -231,10 +231,17 @@ cameraTrigger.onclick = async function () {
   }, erro);
 };
 
-switchCameraButton.onclick = function () {
+switchCameraButton.onclick = async function () {
   cameraMode = cameraMode === "user" ? "environment" : "user";
-  cameraStart();
+
+  if (cameraView.srcObject) {
+    let tracks = cameraView.srcObject.getTracks();
+    tracks.forEach(track => track.stop()); // Para a câmera atual
+  }
+
+  cameraStart(); // Reinicia a câmera com o novo modo
 };
+
 
 window.addEventListener("load", () => {
   cameraStart();
